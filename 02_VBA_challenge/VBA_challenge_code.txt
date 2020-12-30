@@ -1,0 +1,92 @@
+Sub Stock()
+
+'define all varibles
+Dim stock_name As String
+Dim stock_open As Double
+Dim stock_close As Double
+Dim result_row As Long
+Dim vol As Long
+Dim i As Long
+
+result_row = 2
+i = 2
+
+'set headers
+Range("J1") = "Ticker"
+Range("K1") = "Yearly Change"
+Range("L1") = "Percent Change"
+Range("M1") = "Total Stock Volume"
+
+'while loop when column A is not empty:
+Do While Cells(i, 1).Value <> ""
+
+    If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+    
+    stock_name = Cells(i, 1).Value
+    stock_close = Cells(i, 6).Value
+    vol = vol + Cells(i, 7).Value
+    
+    Range("J" & result_row).Value = stock_name
+    Range("K" & result_row).Value = stock_close - stock_open
+    Range("L" & result_row).Value = (stock_close - stock_open) / stock_open
+    On Error Resume Next
+    Range("M" & result_row).Value = vol
+    
+    result_row = result_row + 1
+    
+    'find the first open value and initial vol for each stock
+    ElseIf Cells(i - 1, 1).Value <> Cells(i, 1).Value Then
+    
+    stock_open = Cells(i, 3).Value
+    vol = Cells(i, 7).Value
+    
+    Else
+    
+    stock_close = 0
+    vol = vol + Cells(i, 7).Value
+    
+    End If
+    
+    i = i + 1
+    
+Loop
+
+End Sub
+----------------------------------------------------------------------------------------------------------------------------------
+Sub stock_greatest()
+
+'define all varibles
+Dim change_max As Double
+Dim change_min As Double
+Dim vol_max As Long
+Dim i As Integer
+i = 2
+
+'find greatest % increase, greatest % decrease, and the greatest volume
+change_max = Application.WorksheetFunction.Max(Range("L1:L5000"))
+change_min = Application.WorksheetFunction.Min(Range("L1:L5000"))
+vol_max = Application.WorksheetFunction.Max(Range("M1:M5000"))
+
+Range("P2").Value = "Greatest % Increase"
+Range("P3").Value = "Greatest % Decrease"
+Range("P4").Value = "Greatest Total Volume"
+Range("Q1").Value = "Ticker"
+Range("R1").Value = "Value"
+
+Do While Cells(i, 10).Value <> ""
+
+    If Cells(i, 12).Value = change_max Then
+    Cells(2, 17).Value = Cells(i, 10).Value
+    Cells(2, 18).Value = change_max
+    ElseIf Cells(i, 12).Value = change_min Then
+    Cells(3, 17).Value = Cells(i, 10).Value
+    Cells(3, 18).Value = change_min
+    ElseIf Cells(i, 13).Value = vol_max Then
+    Cells(4, 17).Value = Cells(i, 10).Value
+    Cells(4, 18).Value = vol_max
+    End If
+    
+i = i + 1
+Loop
+
+End Sub

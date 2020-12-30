@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latitude Study</title>
+
+    <link rel='stylesheet' href = "bootstrap.min.css">
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="index.html">Home-latitude</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="comparison.html">Comparison</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="data.html">Data</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+          
+            <li class="nav-item dropdown show">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Plots</a>
+                <div class="dropdown-menu show">
+                  <a class="dropdown-item" href="plot_c.html">cloudiness</a>
+                  <a class="dropdown-item" href="plot_h.html">humidity</a>
+                  <a class="dropdown-item" href="plot_s.html">wind speed</a>
+                  <a class="dropdown-item" href="plot_t.html">temperature</a>
+                </div>
+              </li>
+
+          </ul>
+          
+        </div>
+    </nav>
+
+
+      <br>
+      <div class="jumbotron">
+        <h1 class="display-3">Hello!</h1>
+        <p class="lead">The purpose of this project is to analyze how weather changes as you get closer to the equator. To finish this project we built an API connection to the
+             OpenWeatherMap website that pulled weather data from over 500 cities worldwide. <br>
+
+             This project has compared latitude with four variables: temperature, humidity, cloudiness, and wind speed. 
+             This site provides the visualized plots of these four variables and also the source data. Please feel free to use the navigation bar to explore all the data and plots we 
+             have and learn about it!<br>
+
+             Navigation bar List:
+
+             <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Plots - Each plot explained in detail
+                  <span class="badge badge-primary badge-pill">4  P l o t s</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Comparison - Our 4 plots set side by side
+                  <span class="badge badge-primary badge-pill">4  P l o t s</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Data - The raw data we pulled from the API
+                  <span class="badge badge-primary badge-pill">1  C S V</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    About - Notes about this Assignment, references, and more cool stuff ! 
+                    <span class="badge badge-primary badge-pill">1  V i d e o</span>
+                  </li>
+              </ul>
+
+
+        </p>
+        <hr class="my-4">
+        <p>Summary : Our study turned out that there is a strong relationshp between latitude and temperature. When latitude is closer to the equator, the temperature will be 
+            higher too. For latitude vs. wind speed, humidity, and cloudiness, there is no strong relationshp between them. Even if there was, these would be weak correlations, 
+            and we may need a large dataset to prove it. 
+        </p>
+        
+      </div>
+</body>
+</html>

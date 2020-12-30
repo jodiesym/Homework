@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFO Finder</title>
+
+    <link rel='stylesheet' href = "bootstrap.min (1).css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <style>
+        /* I learned how to make the go back to top button on W3schools.com*/
+    #myBtn {
+        display: none;
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */ }
+
+        /* The hero class is from bootcamp -- Homework 14/index.html and style.css */
+    .hero {
+        position: relative;
+        height: 450px;
+        padding: 20px;
+        margin: 0;
+        background: black;
+        background-image: url("./images/nasa.jpg");
+        background-attachment: fixed;
+        background-position: bottom center;
+        background-size: cover;
+    }
+    
+    </style>
+
+</head>
+
+<body>
+<!-- make nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">UFO Finder</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+<!-- I like the sample photo Bootcamp provided, so I decided to add it too -->
+      <div class="hero text-center">
+        <h1>UFO Sightings</h1>
+        <h4>The Truth is Out There</h4>
+      </div>
+
+      <form >
+        <!-- make a form that can do multiple filters, I only did date, country, and state below-->
+        <legend>Search Filter</legend>
+        <fieldset class="form-inline">
+          <div class="form-group">
+            <label for="datefilter"> Enter Date </label>
+            <input type="text" class="form-control" id="datefilter" onkeyup="date()" placeholder="Example: 1/1/2010">
+          </div>
+          <div class="form-group" >
+            <label for="countryfilter"> Enter country </label>
+            <input type="text" class="form-control" id="countryfilter" onkeyup="country()" placeholder="Example: US">
+          </div>
+          <div class="form-group" >
+            <label class="col-form-label" for="statefilter"> Enter State </label>
+            <input type="text" class="form-control" placeholder="Example: FL, CA, etc" id="statefilter" onkeyup="state()">
+          </div>
+        </fieldset>
+    </form>
+
+<!-- table columns -->
+      <table class="table table-hover" id="ufotable">
+        <thead>
+          <tr>
+            <th scope="col">date/time</th>
+            <th scope="col">city</th>
+            <th scope="col">state</th>
+            <th scope="col">country</th>
+            <th scope="col">shape</th>
+            <th scope="col">durationMinutes</th>
+            <th scope="col">comment</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <!-- a friendly go back to top button in case the webpage is too long -->
+      <button type="button" class="btn btn-secondary" onclick="topFunction()" id="myBtn" title="Go to top">Go back to top</button>
+
+</body>
+
+<script src="UFO_JS/data.js"></script>
+<script src="UFO_JS/app.js"></script>
+
+
+</html>
